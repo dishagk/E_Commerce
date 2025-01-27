@@ -27,7 +27,7 @@ public class AuthenticationFilter implements Filter {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationFilter.class);
     private final AuthService authService;
     private final UserRepository userRepository;
-    private static final String ALLOWED_ORIGIN = "http://localhost:5174";
+    private static final String ALLOWED_ORIGIN = "http://localhost:5173";
     private static final String[] UNAUTHENTICATED_PATHS = {"/api/users/register", "/api/auth/login"};
 
     public AuthenticationFilter(AuthService authService, UserRepository userRepository) {
@@ -87,10 +87,11 @@ public class AuthenticationFilter implements Filter {
 
         // Role-based access control
         if (requestURI.startsWith("/admin/") && role != Role.ADMIN) {
+        	System.out.println("CHECKING....." + requestURI +"  "+role);
             sendErrorResponse(httpResponse, HttpServletResponse.SC_FORBIDDEN, "Forbidden: Admin access required");
             return;
         }
-        if (requestURI.startsWith("/api/") && role != Role.CUSTOMER) {
+        if (requestURI.startsWith("/api/") && (role != Role.CUSTOMER && role != Role.ADMIN)) {
             sendErrorResponse(httpResponse, HttpServletResponse.SC_FORBIDDEN, "Forbidden: Customer access required");
             return;
         }

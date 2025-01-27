@@ -1,6 +1,5 @@
 package com.SpringBoot.E_Commerce.respository;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,12 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.SpringBoot.E_Commerce.entity.JWTToken;
 
 
-
-
 @Repository
 public interface JWTTokenRepository extends JpaRepository<JWTToken, Integer> {
 
-    // Find a token by its value
+	// Find a token by its value
     Optional<JWTToken> findByToken(String token);
 
     // Custom query to find tokens by user ID
