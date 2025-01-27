@@ -10,11 +10,11 @@ export default function Logo() {
     <div className="logo-container" onClick={() => navigate('/customerhome')}>
       <img
         src={logo} // Use the imported image
-        alt="SalesSavvy Logo"
+        alt="GlobalMart Logo"
         className="logo-image" // Updated class name
         onError={(e) => { e.target.src = 'fallback-logo.png'; }} // Fallback for image error
       />
-      <span className="logo-text">SalesSavvy</span>
+      <span className="logo-text">GlobalMart</span>
     </div>
   );
 }

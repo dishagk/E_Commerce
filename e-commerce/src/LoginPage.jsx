@@ -33,7 +33,7 @@ export default function LoginPage() {
         if (data.role === "CUSTOMER") {
           navigate("/customerhome");
         } else if (data.role === "ADMIN") {
-          navigate("/adminhome");
+          navigate("/admindashboard");
         } else {
           navigate("/"); // Redirect to a default page if role is unknown
         }
@@ -89,6 +89,10 @@ export default function LoginPage() {
           <div className="form-footer">
             <a href="/register" className="form-link">
               New User? Sign up here
+            </a>
+            <br />
+            <a href="/admin" className="form-link">
+              Admin? Sign in here
             </a>
           </div>
         </div>

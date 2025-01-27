@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./assets/styles.css";
 
-
-export default function AdminLogin() {
+export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -34,7 +33,7 @@ export default function AdminLogin() {
         if (data.role === "CUSTOMER") {
           navigate("/customerhome");
         } else if (data.role === "ADMIN") {
-          navigate("/adminhome");
+          navigate("/admindashboard");
         } else {
           navigate("/admin"); // Redirect to a default page if role is unknown
         }
@@ -50,19 +49,19 @@ export default function AdminLogin() {
 
   return (
     <div className="page-layout">
-      <div className="page-container">
+      <div className="page-container1">
         <div className="form-container">
           <h1 className="form-title">Admin Login</h1>
           {error && <p className="error-message">{error}</p>}
           <form onSubmit={handleSignIn} className="form-content">
             <div className="form-group">
               <label htmlFor="username" className="form-label">
-                AdminUsername
+                Username
               </label>
               <input
                 id="username"
                 type="text"
-                placeholder="Enter admin username"
+                placeholder="Enter Admin username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -71,12 +70,12 @@ export default function AdminLogin() {
             </div>
             <div className="form-group">
               <label htmlFor="password" className="form-label">
-                AdminPassword
+                Password
               </label>
               <input
                 id="password"
                 type="password"
-                placeholder="Enter admin password"
+                placeholder="Enter Admin password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -84,12 +83,12 @@ export default function AdminLogin() {
               />
             </div>
             <button type="submit" className="form-button">
-              Sign In
+              Enter As Admin
             </button>
           </form>
           <div className="form-footer">
             <a href="/" className="form-link">
-              Not Admin ? Login as customer
+              Not Admin? Login As USer ! 
             </a>
           </div>
         </div>

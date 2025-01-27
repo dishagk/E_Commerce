@@ -13,7 +13,7 @@
     align-items: center;
     gap: 8px;
     font-size: 16px;
-    color: #333;
+    color: white;
     margin-bottom: 20px;
     text-decoration: none;
   }
@@ -28,7 +28,7 @@
   }
   
   .cart-header p {
-    color: #666;
+    color: white;
     margin: 4px 0 0 0;
   }
   
@@ -69,12 +69,12 @@
   .item-info h3 {
     margin: 0;
     font-size: 16px;
-    color: #333;
+    color: #361134;
   }
   
   .item-info p {
     margin: 4px 0 0 0;
-    color: #666;
+    color: black;
     font-size: 14px;
   }
   
@@ -92,7 +92,7 @@
     gap: 8px;
   }
   .quantity-controls button {
-    background: black;
+    background: #361134;
     border: none;
     padding: 8px;
     border-radius: 4px;
@@ -108,11 +108,11 @@
   }
   
   .quantity-controls button:hover {
-    background: #333;
+    background: #361134;
   }
   
   .quantity-controls button:active {
-    background: #444;
+    background: #361134;
   }
   
   .quantity-display {
@@ -170,11 +170,11 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 12px;
-    color: #666;
+    color: #361134;
   }
   
   .summary-row.total {
-    color: #333;
+    color: #361134;
     font-weight: 500;
     font-size: 18px;
     margin-top: 16px;
@@ -185,7 +185,7 @@
   .checkout-button {
     width: 100%;
     padding: 16px;
-    background: #000;
+    background: #361134;
     color: #fff;
     border: none;
     border-radius: 8px;
