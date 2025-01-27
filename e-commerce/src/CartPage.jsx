@@ -119,7 +119,7 @@ const CartPage = () => {
 
       // Open Razorpay checkout interface
       const options = {
-        key: "rzp_test_LqWBBDbgwot5lh", // Replace with your Razorpay Key ID
+        key: "rzp_test_Lji7OI4EpqRa3d", // Replace with your Razorpay Key ID
         amount: subtotal * 100, // Razorpay expects amount in paise
         currency: "INR",
         name: "GlobalMart",
