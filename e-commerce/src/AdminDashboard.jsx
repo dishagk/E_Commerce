@@ -95,7 +95,7 @@ const AdminDashboard = () => {
       });
       const data = await response.json();
       setResponse({ product: data, imageUrl: productData.imageUrl });
-      setModalType("response");
+      setModalType("addProduct");
     } catch (error) {
       console.error("Error adding product:", error);
     }
@@ -114,7 +114,14 @@ const AdminDashboard = () => {
           body: JSON.stringify({ productId }),
         }
       );
+      console.log("response", response);
       // Handle response logic
+      if (response.ok) {
+        setResponse({ message: "Delete Success" });
+      } else {
+        const errorMessage = await response.text();
+        setResponse({ message: `Error: ${errorMessage}` });
+      }
     } catch (error) {
       console.error("Error deleting product:", error);
     }

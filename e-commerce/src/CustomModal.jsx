@@ -90,102 +90,147 @@ const CustomModal = ({ modalType, onClose, onSubmit, response }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         {/* Add Product Form */}
-        {modalType === "addProduct" && (
-          <>
-            <h2>Add Product</h2>
-            <form className="modal-form">
-              <div className="modal-form-item">
-                <label htmlFor="name">Name:</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                />
-              </div>
+        {modalType === "addProduct" &&
+          (!response ? (
+            <>
+              <h2>Add Product</h2>
+              <form className="modal-form">
+                <div className="modal-form-item">
+                  <label htmlFor="name">Name:</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-              <div className="modal-form-item">
-                <label htmlFor="price">Price:</label>
-                <input
-                  type="number"
-                  id="price"
-                  name="price"
-                  placeholder="Price"
-                  value={formData.price}
-                  onChange={handleInputChange}
-                />
-              </div>
+                <div className="modal-form-item">
+                  <label htmlFor="price">Price:</label>
+                  <input
+                    type="number"
+                    id="price"
+                    name="price"
+                    placeholder="Price"
+                    value={formData.price}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-              <div className="modal-form-item">
-                <label htmlFor="stock">Stock:</label>
-                <input
-                  type="number"
-                  id="stock"
-                  name="stock"
-                  placeholder="Stock"
-                  value={formData.stock}
-                  onChange={handleInputChange}
-                />
-              </div>
+                <div className="modal-form-item">
+                  <label htmlFor="stock">Stock:</label>
+                  <input
+                    type="number"
+                    id="stock"
+                    name="stock"
+                    placeholder="Stock"
+                    value={formData.stock}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-              <div className="modal-form-item">
-                <label htmlFor="categoryId">Category ID:</label>
-                <input
-                  type="number"
-                  id="categoryId"
-                  name="categoryId"
-                  placeholder="Category ID"
-                  value={formData.categoryId}
-                  onChange={handleInputChange}
-                />
-              </div>
+                <div className="modal-form-item">
+                  <label htmlFor="categoryId">Category ID:</label>
+                  <input
+                    type="number"
+                    id="categoryId"
+                    name="categoryId"
+                    placeholder="Category ID"
+                    value={formData.categoryId}
+                    onChange={handleInputChange}
+                  />
+                </div>
 
-              <div className="modal-form-item">
-                <label htmlFor="imageUrl">Image URL:</label>
-                <input
-                  type="text"
-                  id="imageUrl"
-                  name="imageUrl"
-                  placeholder="Image URL"
-                  value={formData.imageUrl}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="modal-form-item">
-                <label htmlFor="description">Description:</label>
-                <textarea
-                  id="description"
-                  name="description"
-                  placeholder="Description"
-                  value={formData.description}
-                  onChange={handleInputChange}
-                ></textarea>
-              </div>
-            </form>
+                <div className="modal-form-item">
+                  <label htmlFor="imageUrl">Image URL:</label>
+                  <input
+                    type="text"
+                    id="imageUrl"
+                    name="imageUrl"
+                    placeholder="Image URL"
+                    value={formData.imageUrl}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="modal-form-item">
+                  <label htmlFor="description">Description:</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Description"
+                    value={formData.description}
+                    onChange={handleInputChange}
+                  ></textarea>
+                </div>
+              </form>
 
-            <button onClick={handleSubmit}>Submit</button>
-            <button onClick={onClose}>Cancel</button>
-          </>
-        )}
+              <button onClick={handleSubmit}>Submit</button>
+              <button onClick={onClose}>Cancel</button>
+            </>
+          ) : (
+            <>
+              <h2>Product Details</h2>
+              <div className="full-products">
+                <div className="product-details img">
+                  <img src={response.product.imageUrl} />
+                </div>
+                <div className="product-details-info">
+                  <div className="product-details">
+                    <div className="">Name :</div>
+                    <div className="">{response?.product?.product?.name}</div>
+                  </div>
+                  <div className="product-details">
+                    <div className="">Description :</div>
+                    <div className="">
+                      {response?.product?.product?.description}
+                    </div>
+                  </div>
+                  <div className="product-details">
+                    <div className="">price :</div>
+                    <div className="">{response?.product?.product?.price}</div>
+                  </div>
+                  <div className="product-details">
+                    <div className="">Stock :</div>
+                    <div className="">{response?.product?.product?.stock}</div>
+                  </div>
+                  <div className="product-details">
+                    <div className="">Category :</div>
+                    <div className="">
+                      {response?.product?.product?.category.categoryName}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="product-details">
+                <button onClick={onClose}>Close</button>
+              </div>
+            </>
+          ))}
 
         {/* Delete Product Form */}
-        {modalType === "deleteProduct" && (
-          <>
-            <h2>Delete Product</h2>
-            <form>
-              <input
-                type="number"
-                placeholder="Enter Product ID"
-                value={inputValue}
-                onChange={handleGeneralInputChange}
-              />
-            </form>
-            <button onClick={handleSubmit}>Delete</button>
-            <button onClick={onClose}>Cancel</button>
-          </>
-        )}
+        {modalType === "deleteProduct" &&
+          (!response ? (
+            <>
+              <h2>Delete Product</h2>
+              <form>
+                <input
+                  type="number"
+                  placeholder="Enter Product ID"
+                  value={inputValue}
+                  onChange={handleGeneralInputChange}
+                />
+              </form>
+              <button onClick={handleSubmit}>Delete</button>
+              <button onClick={onClose}>Cancel</button>
+            </>
+          ) : (
+            <div>
+              <h2>Product Deleted Successfully</h2>
+              <button onClick={onClose}>Close</button>
+            </div>
+          ))}
 
         {/* View User Details Form */}
         {modalType === "viewUser" && (
@@ -235,7 +280,7 @@ const CustomModal = ({ modalType, onClose, onSubmit, response }) => {
               </>
             ) : (
               <>
-                <h2>Error</h2>
+                <h2>Error 1</h2>
                 <p>Something went wrong.</p>
               </>
             )}
