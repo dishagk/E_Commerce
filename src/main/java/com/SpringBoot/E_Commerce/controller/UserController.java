@@ -13,7 +13,7 @@ import com.SpringBoot.E_Commerce.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = "http://localhost:5175")
 public class UserController {
 
     private final UserService userService;

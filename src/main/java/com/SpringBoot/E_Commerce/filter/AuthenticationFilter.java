@@ -27,7 +27,7 @@ public class AuthenticationFilter implements Filter {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationFilter.class);
     private final AuthService authService;
     private final UserRepository userRepository;
-    private static final String ALLOWED_ORIGIN = "http://localhost:5173";
+    private static final String ALLOWED_ORIGIN = "http://localhost:5175";
     private static final String[] UNAUTHENTICATED_PATHS = {"/api/users/register", "/api/auth/login"};
 
     public AuthenticationFilter(AuthService authService, UserRepository userRepository) {

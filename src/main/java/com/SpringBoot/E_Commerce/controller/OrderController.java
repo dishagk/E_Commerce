@@ -15,7 +15,7 @@ import com.SpringBoot.E_Commerce.service.OrderService;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5174", allowCredentials = "true") // Allow cross-origin requests
+@CrossOrigin(origins = "http://localhost:5175", allowCredentials = "true") // Allow cross-origin requests
 @RequestMapping("/api/orders")
 public class OrderController {
 

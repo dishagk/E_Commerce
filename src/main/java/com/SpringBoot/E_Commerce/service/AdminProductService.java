@@ -14,7 +14,6 @@ import com.SpringBoot.E_Commerce.respository.ProductImageRepository;
 import com.SpringBoot.E_Commerce.respository.ProductRepository;
 
 
-
 @Service
 public class AdminProductService {
 
@@ -22,8 +21,7 @@ public class AdminProductService {
     private final ProductImageRepository productImageRepository;
     private final CategoryRepository categoryRepository;
 
-    public AdminProductService(ProductRepository productRepository, ProductImageRepository productImageRepository,
-                               CategoryRepository categoryRepository) {
+    public AdminProductService(ProductRepository productRepository, ProductImageRepository productImageRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
         this.productImageRepository = productImageRepository;
         this.categoryRepository = categoryRepository;
@@ -45,6 +43,7 @@ public class AdminProductService {
         product.setCategory(category.get());
         product.setCreatedAt(LocalDateTime.now());
         product.setUpdatedAt(LocalDateTime.now());
+
         Product savedProduct = productRepository.save(product);
 
         // Create and save the product image
@@ -59,7 +58,7 @@ public class AdminProductService {
 
         return savedProduct;
     }
-
+    
     public void deleteProduct(Integer productId) {
         // Check if the product exists
         if (!productRepository.existsById(productId)) {
@@ -73,5 +72,3 @@ public class AdminProductService {
         productRepository.deleteById(productId);
     }
 }
-
-

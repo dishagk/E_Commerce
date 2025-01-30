@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import com.SpringBoot.E_Commerce.service.AdminProductService;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5175", allowCredentials = "true")
 @RequestMapping("/admin/products")
 public class AdminProductController {
 
@@ -43,7 +45,8 @@ public class AdminProductController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong");
         }
     }
-
+    
+    
     @DeleteMapping("/delete")
     public ResponseEntity<?> deleteProduct(@RequestBody Map<String, Integer> requestBody) {
         try {
@@ -57,5 +60,3 @@ public class AdminProductController {
         }
     }
 }
-
-
